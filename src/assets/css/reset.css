@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 body,div,ul,ol,dt,dd,dl,li,h1,h2,h3,h4,h5,h6,form,input,select,textarea,p,img,a,span,strong,*{ padding:0; margin:0;}
 <<<<<<< HEAD
 body{ font-size:12px; font-family:"微软雅黑"; color:#000000; background-color: #efefef;}
 =======
 body{ font-size:12px; font-family:"微软雅黑"; color:#000000; background-color: #f7f7f7;}
 >>>>>>> 1f803252511c2ee1390cbf61f71ea7c1f3382678
+=======
+body,div,ul,ol,dt,dd,dl,li,h1,h2,h3,h4,h5,h6,form,input,select,textarea,p,img,a,span,strong,*{ padding:0; margin:0;box-sizing:border-box;}
+body{ font-size:12px; font-family:"微软雅黑"; color:#000000; background-color: #fff;}
+>>>>>>> wxy/project3
 ul,ol,li{ list-style:none;}
 h1,h2,h3,h4,h5,h6{ font-size:12px; font-weight:normal;}
 img,input,select,textarea{ vertical-align:middle}
@@ -32,3 +37,7 @@ input::-webkit-input-placeholder {
 /* 去除input焦点框框  */
 input{outline:none} 
 
+<<<<<<< HEAD
+=======
+body{margin: 0 auto;}
+>>>>>>> wxy/project3

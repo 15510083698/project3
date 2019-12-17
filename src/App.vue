@@ -1,23 +1,30 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <!--<Site/> -->
+  	<Mine/>
+   <!--  <Newly/>  -->
     <router-view/>
   </div>
 </template>
 
 <script>
+import './assets/css/reset.css';
+import './assets/js/remStyle.js'
+import Mine from './components/Mine.vue' 
+// import Site from './components/Site.vue'
+// import Newly from './components/Newly.vue'
 export default {
-  name: 'App'
+  name: 'App',
+  components:{
+  	Mine,
+  	// Site
+   //  Newly 
+  }
 }
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  
 }
 </style>

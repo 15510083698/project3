@@ -3,8 +3,15 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import axios from 'axios'
+import Vuex from 'vuex'
+import Vant from 'vant'
+import 'vant/lib/index.css'
 
 Vue.config.productionTip = false
+Vue.prototype.$axios = axios
+Vue.use(Vuex)
+Vue.use(Vant)
 
 /* eslint-disable no-new */
 new Vue({

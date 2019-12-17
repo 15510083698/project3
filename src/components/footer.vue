@@ -70,5 +70,6 @@
     padding-top: 0.05rem;
     box-sizing: border-box;
     line-height: 0.3rem;
+    font-size: 0.16rem;
   }
 </style>

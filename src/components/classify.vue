@@ -120,5 +120,6 @@
     margin: auto;
     position: relative;
     top: 0.15rem;
+    font-size: 0.25rem;
   }
 </style>

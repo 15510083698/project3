@@ -1,23 +1,28 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+      <classify></classify>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  import './assets/js/rem.js'
+  import classify from './components/classify.vue'
+  export default {
+    name: 'App',
+    components: {
+       classify
+    }
+  }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  @import url("./assets/css/reset.css");
+  #app {
+    /* font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-}
+  margin-top: 60px; */
+  }
 </style>

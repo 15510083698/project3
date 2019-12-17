@@ -1,23 +1,24 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <!-- <Home></Home> -->
+    <Hometext></Hometext>
     <router-view/>
   </div>
 </template>
 
 <script>
+  import './assets/js/remStyle'
+  // import Home from './components/Home'
+  import Hometext from './components/Hometext'
 export default {
-  name: 'App'
+  name: 'App',
+  components:{
+      // Home
+      Hometext
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import url("./assets/css/reset.css");
 </style>

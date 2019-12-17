@@ -14,7 +14,13 @@
       </p>
     </nav>
     <div class="nav2">
-        
+      <van-card
+        num="2"
+        price="2.00"
+        desc="描述信息"
+        title="商品标题"
+        thumb="https://img.yzcdn.cn/vant/t-thirt.jpg"
+      />
     </div>
     <footer>
       <van-divider :style="{ color: '#666666', borderColor: '#666666', padding: '0 16px' }">
@@ -34,17 +40,19 @@
 
 <script>
 export default {
-    data(){
-        return{
-            arr:[]
-        }
-    },
-    mounted(){
-        this.$axios.get('https://shiyaming1994.github.io/mi/static/homeGoods.json?page=1').then((res)=>{
-            console.log(res)
-            this.arr = res.data
-        })
-    }
+  data() {
+    return {
+      arr: []
+    };
+  },
+  mounted() {
+    this.$axios
+      .get("https://shiyaming1994.github.io/mi/static/homeGoods.json?page=1")
+      .then(res => {
+        console.log(res);
+        this.arr = res.data;
+      });
+  }
 };
 </script>
 
@@ -90,8 +98,8 @@ nav span {
   border: solid #ababab 1px;
   margin-left: 0.2rem;
 }
-.nav2{
-    width: 100%;
+.nav2 {
+  width: 100%;
 }
 footer ul {
   width: 100%;
@@ -103,21 +111,21 @@ footer ul li {
   margin-left: 0.15rem;
   margin-top: 0.4rem;
 }
-footer ul li img{
-    width: 100%;
+footer ul li img {
+  width: 100%;
 }
-footer ul li h2{
-    font-size:.3rem;
-    color: #212121;
-    margin-top: .2rem;
+footer ul li h2 {
+  font-size: 0.3rem;
+  color: #212121;
+  margin-top: 0.2rem;
 }
-footer ul li span{
-    color: #757575;
-    font-size:.2rem;
-    margin-top: .2rem;
+footer ul li span {
+  color: #757575;
+  font-size: 0.2rem;
+  margin-top: 0.2rem;
 }
-footer ul li p{
-    font-size:.3rem;
-    color: red;
+footer ul li p {
+  font-size: 0.3rem;
+  color: red;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
 	<div class="newly">
 		<van-address-edit
-		  :area-list="areaList"
+		  :area-list="ff"
 		  show-postal
 		  show-delete
 		  show-set-default
@@ -15,14 +15,13 @@
 	</div> 
 </template>
 <script>
+	import ff from '@/assets/js/mun.js'
 	export default {
 	  data() {
 	    return {
-	      areaList,
 	      searchResult: []
 	    }
 	  },
-
 	  methods: {
 	    onSave() {
 	      Toast('save');
@@ -44,5 +43,5 @@
 	}
 </script>
 <style scoped>
-
-</style>
+	
+</style>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            

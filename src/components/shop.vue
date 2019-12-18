@@ -45,104 +45,120 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      arr: [],
-      value: 1
+    export default {
+        data() {
+            return {
+                arr: [],
+                value: 1
+            };
+        },
+        mounted() {
+            this.$axios
+                .get("https://shiyaming1994.github.io/mi/static/homeGoods.json?page=1")
+                .then(res => {
+                    console.log(res);
+                    this.arr = res.data;
+                });
+        }
     };
-  },
-  mounted() {
-    this.$axios
-      .get("https://shiyaming1994.github.io/mi/static/homeGoods.json?page=1")
-      .then(res => {
-        console.log(res);
-        this.arr = res.data;
-      });
-  }
-};
 </script>
 
 <style scoped>
-.page {
-  width: 100%;
-}
-header {
-  width: 100%;
-  height: 1.12rem;
-  background: #fff;
-  display: flex;
-  justify-content: space-between;
-  line-height: 1.12rem;
-  padding: 0 0.2rem 0 0.2rem;
-  box-sizing: border-box;
-}
-header p {
-  position: relative;
-}
-header p i {
-  position: absolute;
-  top: 0.45rem;
-  right: -0.2rem;
-}
-#hp {
-  margin-right: 0.15rem;
-}
-nav {
-  width: 100%;
-  height: 1.2rem;
-  background: #ebebeb;
-  text-align: center;
-  line-height: 1.2rem;
-}
-nav p {
-  font-size: 0.35rem;
-  color: #ababab;
-}
-nav span {
-  font-size: 0.25rem;
-  color: #000;
-  border: solid #ababab 1px;
-  margin-left: 0.2rem;
-}
-.nav2 {
-  width: 100%;
-}
-footer ul {
-  width: 100%;
-}
-footer ul li {
-  width: 3rem;
-  height: 4.5rem;
-  float: left;
-  margin-left: 0.15rem;
-  margin-top: 0.4rem;
-}
-footer ul li img {
-  width: 100%;
-}
-footer ul li h2 {
-  font-size: 0.3rem;
-  color: #212121;
-  margin-top: 0.2rem;
-}
-footer ul li span {
-  color: #757575;
-  font-size: 0.2rem;
-  margin-top: 0.2rem;
-}
-footer ul li p {
-  font-size: 0.3rem;
-  color: red;
-}
-.van-card__footer{
-  position:absolute;
-  top:0.73rem;
-  left:1.7rem;
-}
-.van-button::before{
-  position:absolute;
-  top: 0px;
-  right:0;
-}
+    .page {
+        width: 100%;
+    }
+    
+    header {
+        width: 100%;
+        height: 1.12rem;
+        background: #fff;
+        display: flex;
+        justify-content: space-between;
+        line-height: 1.12rem;
+        padding: 0 0.2rem 0 0.2rem;
+        box-sizing: border-box;
+    }
+    
+    header p {
+        position: relative;
+    }
+    
+    header p i {
+        position: absolute;
+        top: 0.45rem;
+        right: -0.2rem;
+    }
+    
+    #hp {
+        margin-right: 0.15rem;
+    }
+    
+    nav {
+        width: 100%;
+        height: 1.2rem;
+        background: #ebebeb;
+        text-align: center;
+        line-height: 1.2rem;
+    }
+    
+    nav p {
+        font-size: 0.35rem;
+        color: #ababab;
+    }
+    
+    nav span {
+        font-size: 0.25rem;
+        color: #000;
+        border: solid #ababab 1px;
+        margin-left: 0.2rem;
+    }
+    
+    .nav2 {
+        width: 100%;
+    }
+    
+    footer ul {
+        width: 100%;
+    }
+    
+    footer ul li {
+        width: 3rem;
+        height: 4.5rem;
+        float: left;
+        margin-left: 0.15rem;
+        margin-top: 0.4rem;
+    }
+    
+    footer ul li img {
+        width: 100%;
+    }
+    
+    footer ul li h2 {
+        font-size: 0.3rem;
+        color: #212121;
+        margin-top: 0.2rem;
+    }
+    
+    footer ul li span {
+        color: #757575;
+        font-size: 0.2rem;
+        margin-top: 0.2rem;
+    }
+    
+    footer ul li p {
+        font-size: 0.3rem;
+        color: red;
+    }
+    
+    .van-card__footer {
+        position: absolute;
+        top: 0.73rem;
+        left: 1.7rem;
+    }
+    
+    .van-button::before {
+        position: absolute;
+        top: 0px;
+        right: 0;
+    }
 </style>

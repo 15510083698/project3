@@ -7,21 +7,27 @@
         <van-icon name="arrow" />
       </p>
     </header>
-    <nav>
+    <nav v-show='true'>
       <p>
         购物车还是空的
         <span>去逛逛</span>
       </p>
     </nav>
-    <div class="nav2">
+    <div class="nav2" v-show='true'>
       <van-card
         num="2"
         price="2.00"
-        desc="描述信息"
         title="商品标题"
         thumb="https://img.yzcdn.cn/vant/t-thirt.jpg"
-      />
+        position='relative'
+      >
+        <div slot="footer">
+         <van-stepper v-model="value" style='float:left'/>
+         <van-icon name="delete" size='.35rem' style="float:right;margin-left:2.8rem;margin-top:0.1rem"/>
+        </div> 
+      </van-card>
     </div>
+    
     <footer>
       <van-divider :style="{ color: '#666666', borderColor: '#666666', padding: '0 16px' }">
         <span style="font-size:0.25rem">实时推荐你的心心念念</span>
@@ -42,7 +48,8 @@
 export default {
   data() {
     return {
-      arr: []
+      arr: [],
+      value: 1
     };
   },
   mounted() {
@@ -127,5 +134,15 @@ footer ul li span {
 footer ul li p {
   font-size: 0.3rem;
   color: red;
+}
+.van-card__footer{
+  position:absolute;
+  top:0.73rem;
+  left:1.7rem;
+}
+.van-button::before{
+  position:absolute;
+  top: 0px;
+  right:0;
 }
 </style>

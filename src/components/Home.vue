@@ -1,5 +1,5 @@
 <template>
-  <div id="Home">
+  <div id="Home" >
     <div class="home_top">
        <div class="circle"></div>
        <div class="home_in">
@@ -10,7 +10,7 @@
 
     <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
       <!-- 轮播图 -->
-        <van-swipe :autoplay="1000" indicator-color="white" style="width:100% ;height: 3.2rem;margin-top: 1.13rem;">
+        <van-swipe v-if="arr.length!=0" :autoplay="1000" indicator-color="white" style="width:100% ;height: 3.2rem;margin-top: 1.13rem;">
           <van-swipe-item v-for="item in arr" :key="item.id"><img :src="item.img" alt="" style="width: 100%;height: 3.2rem;"></van-swipe-item>
         </van-swipe>
       <!-- 导航 -->
@@ -40,7 +40,7 @@
       </nav>
       <!-- 产品 -->
        <section>
-          <ul class="section_ul">
+          <ul class="section_ul" v-if="arr2.length!=0">
               <li v-for="(item,index) in arr2" :key="item.id" @click="godetails(index)">
               <img :src="item.img" alt="" style="width:100%;height: 3.12rem;">
               <h1>{{ item.name }}</h1>
@@ -89,6 +89,7 @@
       mounted(){
         this.$axios.get('https://shiyaming1994.github.io/mi/static/rotationChart.json')
         .then((res)=>{
+          console.log(res.data)
             this.arr = res.data
         })
         this.$axios.get('https://shiyaming1994.github.io/mi/static/homeGoods.json?page=1')

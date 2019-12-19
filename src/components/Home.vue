@@ -65,7 +65,8 @@
         count: 0,
         isLoading: false,
         arr:[],
-        arr2:[]
+        arr2:[],
+        n:123
       }
     },
      methods: {

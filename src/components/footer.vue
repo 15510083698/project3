@@ -13,7 +13,18 @@
   export default {
     data() {
       return {
-        num:JSON.parse(localStorage.getItem('arr')).length
+        arr:JSON.parse(localStorage.getItem('user'))||[]
+      }
+    },
+    computed:{
+      num(){
+        var num = 0
+        if(this.arr!=[]){
+          this.arr.forEach((res)=>{
+           num += res.value
+        })
+        }
+        return num
       }
     }
   }

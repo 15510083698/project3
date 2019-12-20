@@ -1,8 +1,8 @@
 <template>
-  <div class="details" v-if="arr.length!=0">
+  <div class="details">
     <van-icon name="arrow-left" size="0.8rem" color="#dddddd" @click="gohome()" />
-    <van-swipe :autoplay="1000" indicator-color="white" style="width:100% ;height: 7.03rem;">
-      <van-swipe-item v-for="(item,index) in arr.imgList" :key="item.index"><img :src="item.img" alt="" style="width: 100%;height: 100%;"></van-swipe-item>
+    <van-swipe :autoplay="1000" indicator-color="white" style="width:100% ;height: 7.03rem;" v-if='arr.length!=0'>
+      <van-swipe-item v-for="(item,index) in arr.imgList" :key="index"><img :src="item.img" alt="" style="width: 100%;height: 100%;"></van-swipe-item>
     </van-swipe>
     <div class="con">
       <h2>{{arr.name}}</h2>
@@ -21,9 +21,9 @@
     <footer>
       <ul>
         <li>
-          <van-icon name="wap-home-o" size="0.4rem" @click="gohome2()"/><br>首页</li>
+          <van-icon name="wap-home-o" size="0.4rem" @click="gohome2()" /><br>首页</li>
         <li @click="goshop()">
-          <van-icon name="shopping-cart-o" size="0.4rem" :info="nu"/><br>购物车</li>
+          <van-icon name="shopping-cart-o" size="0.4rem" :info="info" /><br>购物车</li>
         <button @click="blockspec()">加入购物车</button>
       </ul>
     </footer>
@@ -36,7 +36,8 @@
         </p>
         <p style="margin-top: 0.2rem;">
           <span style="border: none;text-indent: 0;">版本</span>
-          <span @click="num(item.edition_price,index)" :class="n==index?'active':'active2'" v-for="(item,index) in arr.edition" :key="item.index">
+          <span @click="num(item.edition_price,index)" :class="n==index?'active':'active2'" v-for="(item,index) in arr.edition"
+            :key="item.index">
             {{item.Memory}}<strong>{{item.edition_price}}</strong>
           </span>
         </p>
@@ -57,18 +58,17 @@
   export default {
     data() {
       return {
-        nu:JSON.parse(localStorage.getItem('arr')).length,
         arr: [],
         isspec: false,
         i: this.$route.params.i,
         n: 0,
         n2: 0,
+        str: JSON.parse(localStorage.getItem('user')) || [],
         obj: {
           value: 1,
           num2: '',
-          n: 0,
-          n2: 0,
-          n3: 0
+          name: '',
+          img: ''
         }
       }
     },
@@ -85,7 +85,7 @@
       gohome() {
         history.back()
       },
-      gohome2(){
+      gohome2() {
         this.$router.push('/home')
       },
       goshop() {
@@ -96,18 +96,47 @@
         this.n = u
       },
       addshop() {
-        this.obj.n = this.n
-        this.obj.n2 = this.n2
-        this.obj.n3 = this.i
-        this.$store.commit('addshop2', this.obj)
-        this.$router.push('/shop')
+        this.obj.name = this.arr.name
+        this.obj.img = this.arr.edition[this.n].color[this.n2].img
+        if (this.str.length == 0) {
+          this.str.push(this.obj);
+        } else {
+          console.log(this.str)
+          for (var i = 0; i < this.str.length; i++) {
+            if (this.str[i].name == this.obj.name && this.str[i].num2 == this.obj.num2) {
+              this.str[i].value = this.str[i].value + this.obj.value;
+              localStorage.setItem("user", JSON.stringify(this.str));
+              this.$router.push("/shop");
+              return;
+            }
+          }
+          this.str.push(this.obj);
+          localStorage.setItem("user", JSON.stringify(this.str));
+          this.$router.push("/shop");
+
+
+        }
+        localStorage.setItem("user", JSON.stringify(this.str));
+        this.$router.push("/shop");
       }
     },
+
     mounted() {
       this.$axios.get('https://shiyaming1994.github.io/mi/static/homeGoods.json?page=1').then((res) => {
         this.arr = res.data[this.i]
         console.log(this.arr)
       })
+    },
+    computed:{
+      info(){
+        var num = 0
+        if(this.str!=[]){
+          this.str.forEach((res)=>{
+           num += res.value
+        })
+        }
+        return num
+      }
     }
   }
 </script>

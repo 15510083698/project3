@@ -4,21 +4,22 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
-// import Vuex from 'vuex'
-import store from './store/index.js'
 import Vant from 'vant'
 import 'vant/lib/index.css'
+import Router from 'vue-router'
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
-// Vue.use(Vuex)
 Vue.use(Vant)
 
-/* eslint-disable no-new */
+const originalPush = Router.prototype.push
+Router.prototype.push = function push(location) {
+  return originalPush.call(this,location).catch(err => err)
+}
+
 new Vue({
   el: '#app',
   router,
-  store,
   components: { App },
   template: '<App/>'
 })

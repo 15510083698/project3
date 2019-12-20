@@ -1,5 +1,5 @@
 <template>
-  <div class="details">
+  <div class="details" v-if="arr.length!=0">
     <van-icon name="arrow-left" size="0.8rem" color="#dddddd" @click="gohome()" />
     <van-swipe :autoplay="1000" indicator-color="white" style="width:100% ;height: 7.03rem;" v-if='arr.length!=0'>
       <van-swipe-item v-for="(item,index) in arr.imgList" :key="index"><img :src="item.img" alt="" style="width: 100%;height: 100%;"></van-swipe-item>

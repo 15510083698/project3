@@ -1,7 +1,6 @@
 <template>
   <div class="page">
     <hea txt="购物车"></hea>
-    <!-- v-if="arr.length!=0" -->
     <header>
       <p style="color:#212121;font-size:0.3rem;">登录以后享受更多优惠</p>
       <p id="hp" style="color:#757575;font-size:0.26rem;">
@@ -9,15 +8,12 @@
         <van-icon name="arrow" />
       </p>
     </header>
-    <!-- v-show='arr2.length==0?true:false' -->
-    <nav>
+    <nav v-show="arr2.length!=0?false:true">
       <p>
         购物车还是空的
         <span style="background: #fff;padding: 0.1rem;" @click="gohome()">去逛逛</span>
       </p>
     </nav>
-    <!-- v-if="arr2.length!=0" -->
-    <!-- v-show='arr2.length==0?false:true' -->
     <div class="nav2" v-for="(item,index) in arr2" :key="item.index">
       <van-card :price="item.num2*item.value" :title="item.name" :thumb="item.img" position='relative'>
         <div slot="footer">
